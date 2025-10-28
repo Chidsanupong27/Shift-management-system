@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PersonelList from "./components/people/PersonelList";
 import Header from "./components/layout/Header";
 import MapView from "./components/map/MapView";
 import LocationList from "./components/locations/LocationList";
+import axios from "axios";
+import useDutyStore from "./store/useDutyStore";
 
 const App = () => {
+//js
+const fetchAll = useDutyStore((state)=> state.fetchAll)
+
+
+useEffect(()=>{
+  fetchAll()
+},[])
+
   return (
     <div className="flex h-screen bg-green-100">
       <PersonelList />

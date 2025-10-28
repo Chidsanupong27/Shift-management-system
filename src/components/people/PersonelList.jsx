@@ -9,8 +9,8 @@ const PersonelList = () => {
 // console.log(kaika)
 
 //fecth Selected
-const kaika = useDutyStore((state) =>state.kaika)
-console.log(kaika)
+const personnel = useDutyStore((state) =>state.personnel)
+console.log(personnel)
 
   return <div className="w-80 bg-white overflow-y-auto">PersonelList</div>;
 };
