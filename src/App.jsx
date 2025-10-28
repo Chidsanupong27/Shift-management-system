@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import PersonelList from "./components/people/PersonelList";
+import Header from "./components/layout/Header";
+import MapView from "./components/map/MapView";
+import LocationList from "./components/locations/LocationList";
 
 const App = () => {
   return (
-    <div className='text-8xl'>App</div>
-  )
-}
+    <div className="flex h-screen bg-green-100">
+      <PersonelList />
 
-export default App
+      <div className="flex flex-col flex-1">
+        <Header />
+        <div className="flex flex-1 overflow-hidden">
+          <MapView />
+          <LocationList />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
