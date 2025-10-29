@@ -1,9 +1,27 @@
-import React from 'react'
+import React from "react";
+import { MapContainer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import Layers from "./Layers";
+
 
 const MapView = () => {
-  return (
-    <div className='flex-1'>MapView</div>
-  )
-}
 
-export default MapView
+
+  const center = [13,100]
+  return (
+    <div className="flex-1">
+      <MapContainer
+        className="h-full"
+        center={center}
+        zoom={7}
+      >
+       
+       <Layers/>
+
+
+      </MapContainer>
+    </div>
+  );
+};
+
+export default MapView;
