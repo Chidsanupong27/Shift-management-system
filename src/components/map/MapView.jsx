@@ -1,10 +1,23 @@
 import React from "react";
-import { MapContainer } from "react-leaflet";
+import { MapContainer, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import Layers from "./Layers";
 
 
-const MapView = () => {
+
+const ClickToAdd = ({adding , onPick}) => {
+  //fn body
+const map = useMapEvents({
+  click(e){
+     {
+      adding && onPick(e.latlng.lat, e.latlng.lng);
+     }
+  }
+})
+  return
+}
+
+const MapView = ({adding,onPick}) => {
 
 
   const center = [13,100]
@@ -17,6 +30,9 @@ const MapView = () => {
       >
        
        <Layers/>
+
+        <ClickToAdd adding={adding} onPick={onPick}/>
+
 
 
       </MapContainer>
