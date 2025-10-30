@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PersonelList from "./components/people/PersonelList";
 import Header from "./components/layout/Header";
 import MapView from "./components/map/MapView";
@@ -8,6 +8,9 @@ import useDutyStore from "./store/useDutyStore";
 
 const App = () => {
 //js
+
+const [adding,setAdding] = useState(false)
+
 const fetchAll = useDutyStore((state)=> state.fetchAll)
 
 
@@ -20,7 +23,8 @@ useEffect(()=>{
       <PersonelList />
 
       <div className="flex flex-col flex-1">
-        <Header />
+        <Header  adding={adding} setAdding={setAdding}/>
+        
         <div className="flex flex-1 overflow-hidden">
           <MapView />
           <LocationList />
