@@ -7,6 +7,12 @@ const LocationList = () => {
   const locations = useDutyStore((s) => s.locations);
   // console.log(locations);
 
+  const onDropToLocation = (e,LocationId) => {
+    const personId = e.dataTransfer.getData('text/plain')
+    console.log(personId,LocationId)
+   
+  }
+
   return (
     <div className="w-80 bg-white border-l shadow-lg border-gray-200">
       <div className="p-6 border-b border-gray-200 bg-purple-100">
@@ -21,7 +27,10 @@ const LocationList = () => {
 
         {locations.map((item) => {
           return (
-            <div key={item.id}
+            <div 
+            onDragOver={(e)=>e.preventDefault()}
+            onDrop={(e)=>onDropToLocation(e,item.id) }
+            key={item.id}
             className="border-2 border-dashed rounded-lg border-gray-400 bg-gray-100">
               <div className="flex justify-between p-4">
                 <div className="flex-1">
