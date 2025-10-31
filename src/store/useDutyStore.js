@@ -2,7 +2,8 @@ import { create } from "zustand"
 import { api } from "../lib/api"
 
 
-const dutyStore = (set) => ({
+
+const dutyStore = (set,get) => ({
     //fn body
         personnel:[],
         locations:[],
@@ -21,6 +22,24 @@ const dutyStore = (set) => ({
                 console.log(error)
             }
         },
+
+        addLocation:async (lat,lng,name) => {
+            try {
+               const res = await api.post('/locations',
+               {
+                name:name,
+                lat:Number(lat),
+                lng:Number(lng),
+                maxCapacity:5,
+               }
+            )
+
+            await get().fetchAll()
+
+            } catch (error) {
+                console.log("Add location Err",error)
+            }
+        }
 
     })
 
