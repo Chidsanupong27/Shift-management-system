@@ -6,6 +6,14 @@ import useDutyStore from "../../store/useDutyStore";
 
 
 
+
+// const OnAdd = () => {
+//   //wait for code 
+//   console.log(OnAdd)
+// }
+
+
+
 const ClickToAdd = ({adding , onPick}) => {
   //fn body
 const map = useMapEvents({
